@@ -1,9 +1,12 @@
 package com.czavala.practicacrudspringboot.mapper;
 
+import com.czavala.practicacrudspringboot.dto.CategoryDto;
 import com.czavala.practicacrudspringboot.dto.ProductDto;
-import com.czavala.practicacrudspringboot.dto.SaveProductDto;
+import com.czavala.practicacrudspringboot.persistance.entities.Category;
 import com.czavala.practicacrudspringboot.persistance.entities.Product;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Mapper {
 
 
@@ -17,5 +20,15 @@ public class Mapper {
         productDto.setCategory(product.getCategory().getName());
 
         return productDto;
+    }
+
+    public CategoryDto mapToCategoryDto(Category category) {
+        if (category == null) return null;
+
+        CategoryDto categoryDto = new CategoryDto();
+        categoryDto.setName(category.getName());
+        categoryDto.setStatus(category.getStatus());
+
+        return categoryDto;
     }
 }
