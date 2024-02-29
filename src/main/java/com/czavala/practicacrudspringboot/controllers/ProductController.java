@@ -47,7 +47,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productDto);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/disable")
     public ResponseEntity<ProductDto> disableOneById(@PathVariable Long id) {
         ProductDto productDto = productService.disableOneById(id);
         return ResponseEntity.ok(productDto);
